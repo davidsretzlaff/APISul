@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\APISul.Domain\APISul.Domain.csproj" />
+    <ProjectReference Include="..\APISul.Service\APISul.Service.csproj" />
+    <ProjectReference Include="..\APISul.BusinessRule\APISul.BusinessRule.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+
+</Project>

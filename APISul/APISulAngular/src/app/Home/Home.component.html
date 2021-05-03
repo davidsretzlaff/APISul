@@ -1,0 +1,204 @@
+<div class="container">
+  <!-- Content here -->
+
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Resultado API Rest</h1>
+    <p class="lead">
+      Suponha que a administração do prédio 99a da Tecnopuc, com 16 andares e cinco elevadores, denominados A, B, C, D e E, nos convidou a aperfeiçoar o sistema de controle dos elevadores. Depois de realizado um levantamento no qual cada usuário respondia:
+    </p>
+    <p class="lead text-left">a. O elevador que utiliza com mais frequência (A, B, C, D ou E);</p>
+    <p class="lead text-left">b. O andar ao qual se dirigia (0 a 15);</p>
+    <p class="lead text-left">c. O período que utilizava o elevador – M: Matutino; V: Vespertino; N: Noturno.</p>
+  </div>
+
+  <div class="mb-3 pr-lg-2 mb-3 col-lg-12 ">
+    <div class="h-lg-100 card">
+      <div class="bg-light card-header">
+        <div class="align-items-center row">
+          <div class="col"><h6 class="mb-0">Resultados</h6></div>
+          
+        </div>
+      </div>
+      <div class="py-0 card-body">
+        <div class="align-items-center py-2 border-bottom border-200 row">
+          <div class="py-1 col">
+            <div class="align-items-center media">
+              <div class="avatar avatar-xl mr-3">
+                <div class="avatar-name rounded-circle bg-soft-warning">
+                  <span class="fs-0 text-primary">A</span>
+                </div>
+              </div>
+              <div class="position-relative media-body">
+                <h6 class="d-flex align-items-center mb-0">
+                  <span href="#!">Andar menos utilizado pelos usuários</span>
+                </h6>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="justify-content-end align-items-center row">
+              <div class="col-auto pr-0">
+                <div class="fs--1 font-weight-semi-bold">{{andarMenosUtilizado}}</div>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+        <div class="align-items-center py-2 border-bottom border-200 row">
+          <div class="py-1 col">
+            <div class="align-items-center media">
+              <div class="avatar avatar-xl mr-3">
+                <div class="avatar-name rounded-circle bg-soft-info">
+                  <span class="fs-0 text-primary">B</span>
+                </div>
+              </div>
+              <div class="position-relative media-body">
+                <h6 class="d-flex align-items-center mb-0">
+                  <span class="">Elevador mais frequentado e o período que se encontra maior fluxo</span>
+                  
+                </h6>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="justify-content-end align-items-center row">
+              <div class="col-auto pr-0">
+                <div class="fs--1 font-weight-semi-bold">xxxx</div>
+              </div>
+              <div class="pr-card col-5">
+                <div
+                  class="progress w-100 rounded-soft bg-200 bg-primary"
+                  style="height: 5px"
+                >
+                  <div
+                    class="progress-bar bg-primary"
+                    role="progressbar"
+                    aria-valuenow="79"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 79%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="align-items-center py-2 border-bottom border-200 row">
+          <div class="py-1 col">
+            <div class="align-items-center media">
+              <div class="avatar avatar-xl mr-3">
+                <div class="avatar-name rounded-circle bg-soft-primary">
+                  <span class="fs-0 text-primary">C</span>
+                </div>
+              </div>
+              <div class="position-relative media-body">
+                <h6 class="d-flex align-items-center mb-0">
+                  <span >Elevador menos frequentado e o período que se encontra menor fluxo</span>
+                </h6>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="justify-content-end align-items-center row">
+              <div class="col-auto pr-0">
+                <div class="fs--1 font-weight-semi-bold">xxx</div>
+              </div>
+              <div class="pr-card col-5">
+                <div
+                  class="progress w-100 rounded-soft bg-200 bg-primary"
+                  style="height: 5px"
+                >
+                  <div
+                    class="progress-bar bg-primary"
+                    role="progressbar"
+                    aria-valuenow="90"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 90%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="align-items-center py-2 border-bottom border-200 row">
+          <div class="py-1 col">
+            <div class="align-items-center media">
+              <div class="avatar avatar-xl mr-3">
+                <div class="avatar-name rounded-circle bg-soft-danger">
+                  <span class="fs-0 text-primary">D</span>
+                </div>
+              </div>
+              <div class="position-relative media-body">
+                <h6 class="d-flex align-items-center mb-0">
+                  <span>Período de maior utilização do conjunto de elevadores</span>
+                </h6>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="justify-content-end align-items-center row">
+              <div class="col-auto pr-0">
+                <div class="fs--1 font-weight-semi-bold">xxx</div>
+              </div>
+              <div class="pr-card col-5">
+                <div
+                  class="progress w-100 rounded-soft bg-200 bg-primary"
+                  style="height: 5px"
+                >
+                  <div
+                    class="progress-bar bg-primary"
+                    role="progressbar"
+                    aria-valuenow="40"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 40%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="align-items-center py-2 row">
+          <div class="py-1 col">
+            <div class="align-items-center media">
+              <div class="avatar avatar-xl mr-3">
+                <div class="avatar-name rounded-circle bg-soft-success">
+                  <span class="fs-0 text-primary">e</span>
+                </div>
+              </div>
+              <div class="position-relative media-body">
+                <h6 class="d-flex align-items-center mb-0">
+                  <span>Percentual de uso de cada elevador com relação a todos os serviços prestados</span>
+                </h6>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="justify-content-end align-items-center row">
+              <div class="col-auto pr-0">
+                <div class="fs--1 font-weight-semi-bold">xxx</div>
+              </div>
+              <div class="pr-card col-5">
+                <div
+                  class="progress w-100 rounded-soft bg-200 bg-primary"
+                  style="height: 5px"
+                >
+                  <div
+                    class="progress-bar bg-primary"
+                    role="progressbar"
+                    aria-valuenow="78"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 78%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
