@@ -43,36 +43,43 @@ namespace APISul.BusinessRule.Repository
         public List<char> elevadorMaisFrequentado()
         {
             List<Elevator> elevators = LoadJson();
+            List<char> listEvators = new List<char>();
             List<char> result = new List<char>();
-
             elevators.ForEach(
-                e => result.Add(e.elevador)
+                e => listEvators.Add(e.elevador)
             );
 
-            result = (from a in result
+            listEvators = (from a in listEvators
                       group a by a into g
                       where g.Count() >= 2
                       orderby g.Count() descending
                       select g.Key).ToList();
-            
+            if(listEvators != null && listEvators.Count > 0)
+            {
+                result.Add(listEvators.First());
+            }
             return result;
         }
 
         public List<char> elevadorMenosFrequentado()
         {
             List<Elevator> elevators = LoadJson();
+            List<char> listElevators = new List<char>();
             List<char> result = new List<char>();
-
+            
             elevators.ForEach(
-                e => result.Add(e.elevador)
+                e => listElevators.Add(e.elevador)
             );
 
-            result = (from a in result
+            listElevators = (from a in listElevators
                       group a by a into g
                       where g.Count() <= 1
                       orderby g.Count() ascending
                       select g.Key).ToList();
-            
+            if(listElevators != null && listElevators.Count > 0)
+            {
+                result.Add(listElevators.First());
+            }
             return result;
         }
 
@@ -100,6 +107,7 @@ namespace APISul.BusinessRule.Repository
         public float percentualDeUsoElevadorD()
         {
             List<Elevator> elevators = LoadJson();
+
             float result = ((float)(elevators.Where(x => x.elevador.Equals('D')).ToList().Count()) / elevators.Count()) * 100;
             return result;
         }
