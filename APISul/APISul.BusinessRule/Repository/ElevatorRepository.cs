@@ -25,67 +25,147 @@ namespace APISul.BusinessRule.Repository
         public List<int> andarMenosUtilizado()
         {
             List<Elevator> elevators = LoadJson();
-            List<int> andares = new List<int>();
-            
-            elevators.ForEach(e => andares.Add(e.andar));
+            List<int> result = new List<int>();
 
-            // Ordernar pelo andar - frequente
-            var andaresMenosUtilizados = (from a in andares
-                                          group a by a into grupo
-                                          orderby grupo.Count() ascending
-                                          select grupo.Key).ToList();
+            elevators.ForEach(
+                e => result.Add(e.andar)
+            );
 
-            return andaresMenosUtilizados.ToList();
+            result = (from a in result
+                        group a by a into g
+                        where g.Count() <= 1
+                        orderby g.Count() ascending
+                        select g.Key).ToList();
+
+            return result;
         }
 
         public List<char> elevadorMaisFrequentado()
         {
-            throw new System.NotImplementedException();
+            List<Elevator> elevators = LoadJson();
+            List<char> result = new List<char>();
+
+            elevators.ForEach(
+                e => result.Add(e.elevador)
+            );
+
+            result = (from a in result
+                      group a by a into g
+                      where g.Count() >= 2
+                      orderby g.Count() descending
+                      select g.Key).ToList();
+            
+            return result;
         }
 
         public List<char> elevadorMenosFrequentado()
         {
-            throw new System.NotImplementedException();
+            List<Elevator> elevators = LoadJson();
+            List<char> result = new List<char>();
+
+            elevators.ForEach(
+                e => result.Add(e.elevador)
+            );
+
+            result = (from a in result
+                      group a by a into g
+                      where g.Count() <= 1
+                      orderby g.Count() ascending
+                      select g.Key).ToList();
+            
+            return result;
         }
 
         public float percentualDeUsoElevadorA()
-        {
-            throw new System.NotImplementedException();
+        {            
+            List<Elevator> elevators = LoadJson();
+            float result = ((float)(elevators.Where(x => x.elevador.Equals('A')).ToList().Count()) / elevators.Count()) * 100;
+            return result;           
         }
 
         public float percentualDeUsoElevadorB()
         {
-            throw new System.NotImplementedException();
+             List<Elevator> elevators = LoadJson();
+             float result = ((float)(elevators.Where(x => x.elevador.Equals('B')).ToList().Count()) / elevators.Count()) * 100;
+             return result;
         }
 
         public float percentualDeUsoElevadorC()
         {
-            throw new System.NotImplementedException();
+             List<Elevator> elevators = LoadJson();            
+             float result = ((float)(elevators.Where(x => x.elevador.Equals('C')).ToList().Count()) / elevators.Count()) * 100;
+             return result;
         }
 
         public float percentualDeUsoElevadorD()
         {
-            throw new System.NotImplementedException();
+            List<Elevator> elevators = LoadJson();
+            float result = ((float)(elevators.Where(x => x.elevador.Equals('D')).ToList().Count()) / elevators.Count()) * 100;
+            return result;
         }
 
         public float percentualDeUsoElevadorE()
         {
-            throw new System.NotImplementedException();
+            List<Elevator> elevators = LoadJson();
+            float result = ((float)(elevators.Where(x => x.elevador.Equals('E')).ToList().Count()) / elevators.Count()) * 100;
+            return result;
         }
 
         public List<char> periodoMaiorFluxoElevadorMaisFrequentado()
         {
-            throw new System.NotImplementedException();
+            List<Elevator> elevators = LoadJson();
+            
+            char elevadorMaisFrequentado = this.elevadorMaisFrequentado().FirstOrDefault();
+            List<char> listPeriodoMaiorFluxoMaisFrequentado = new List<char>();
+            List<char> result = new List<char>();
+            
+            listPeriodoMaiorFluxoMaisFrequentado = (from e in elevators
+                            where e.elevador == elevadorMaisFrequentado
+                            group e.turno by e.turno into g
+                            orderby g.Count() descending
+                            select g.Key).ToList();
+
+            if(listPeriodoMaiorFluxoMaisFrequentado != null && listPeriodoMaiorFluxoMaisFrequentado.Count > 0)
+            {
+                result.Add(listPeriodoMaiorFluxoMaisFrequentado.First());
+            }
+
+            return result;
         }
 
         public List<char> periodoMaiorUtilizacaoConjuntoElevadores()
         {
-            throw new System.NotImplementedException();
+            List<Elevator> elevators = LoadJson();
+            List<char> listTurno = new List<char>();
+            List<char> result = new List<char>();
+            elevators.ForEach(
+                    e => listTurno.Add(e.turno)
+                );
+        
+            listTurno = (from p in listTurno
+                    group p by p into g
+                    orderby g.Count() descending
+                    select g.Key).ToList();
+
+            if(listTurno != null && listTurno.Count > 0)
+            {
+                result.Add(listTurno.First());
+            }
+            
+            return result;
         }
 
         public List<char> periodoMenorFluxoElevadorMenosFrequentado()
         {
-            throw new System.NotImplementedException();
+            List<Elevator> elevators = LoadJson();
+            char elevadorMenosFrequentado = this.elevadorMenosFrequentado().First();
+            List<char> result = (from e in elevators
+                            where e.elevador == elevadorMenosFrequentado
+                            group e.turno by e.turno into g
+                            orderby g.Count() ascending
+                            select g.Key).ToList();
+
+            return result;
         }
     }
 }

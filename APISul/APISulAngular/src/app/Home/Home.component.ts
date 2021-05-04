@@ -16,10 +16,10 @@ export class HomeComponent implements OnInit {
   }
 
   getAndarMenosUtilizado() {
-    this.http.get('http://localhost:5000/api/Elevator/andarMenosUtilizado').subscribe
-    (
-      response => {this.andarMenosUtilizado = response; console.log(response);},
-      error => {console.log(error);}
-    );
+     this.http.get('http://localhost:5000/api/Elevator/andarMenosUtilizado').subscribe
+     (
+       response => {this.andarMenosUtilizado = response;},
+       error => {console.log(error);}
+     );
   }
 }
